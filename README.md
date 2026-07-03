@@ -302,8 +302,4 @@ Review the business report and presentation.
 
 ---
 
-## Author
 
-**Your Name**
-
-Data Analytics Portfolio Project
