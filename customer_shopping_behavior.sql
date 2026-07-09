@@ -33,13 +33,13 @@ ROUND(AVG(purchase_amount),2) as avg_spend,
 SUM(purchase_amount) as total_spend
 from customer
 group by subscription_status
-order by total_spend, avg_spend desc;
+order by total_spend desc, avg_spend desc;
 
 
 -- Q6. Which 5 products have the highest percentage of purchases with discounts applied?
 select item_purchased, 
 		ROUND(
-				100 * SUM(CASE WHEN discount_applied = 'Yes' THEN 1 ELSE 0 END)/COUNT(*), 
+				100 * SUM(CASE WHEN discount_applied = 'Yes' THEN 1 ELSE 0 END)::numeric/COUNT(*), 
 				2
 		) as discount_rate
 from customer
@@ -96,9 +96,3 @@ SUM(purchase_amount) as total_revenue
 from customer
 group by age_group
 order by total_revenue desc;
-
-
-
-
-
-
